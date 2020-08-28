@@ -168,8 +168,8 @@ export default {
 
     async play(x, y) {
       if (!this.board[y][x]) {
-        //this.$set(this.board[y], x, this.currentPlayer);
-        this.board[y].splice(x, 1, this.currentPlayer);
+        this.$set(this.board[y], x, this.currentPlayer);
+        //this.board[y].splice(x, 1, this.currentPlayer);
         this.count += 1;
 
         await this.checkWin(x, y);
