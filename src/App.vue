@@ -168,11 +168,14 @@ export default {
 
     async play(x, y) {
       if (!this.board[y][x]) {
-        // Javascript caveats and can not use Vue $set
+        // Javascript caveats and can not use Vue $set, forceUpdate
         //this.$set(this.board[y], x, this.currentPlayer);
         //this.board[y].splice(x, 1, this.currentPlayer);
-        this.board[y][x] = this.currentPlayer;
-        this.$forceUpdate();
+        //this.board[y][x] = this.currentPlayer;
+        //this.$forceUpdate();
+        let row = Array.from(this.board[y]);
+        row[x]= this.currentPlayer;
+        this.board.splice(y, 1, row);
 
         this.count += 1;
 
